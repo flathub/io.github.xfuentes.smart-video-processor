@@ -264,22 +264,24 @@ modules:
       - cp -r dist/linux*unpacked/* /app/lib/smart-video-processor/
       - node tools/configure.js ./flatpak
       - install -Dm644 flatpak/io.github.xfuentes.smart-video-processor.desktop /app/share/applications/io.github.xfuentes.smart-video-processor.desktop
-      - install -Dm644 flatpak/io.github.xfuentes.smart-video-processor.metainfo.xml /app/share/metainfo/io.github.xfuentes.smart-video-processor.metainfo.xml
+      - install -Dm644 flatpak/io.github.xfuentes.smart-video-processor.metainfo.xml
+        /app/share/metainfo/io.github.xfuentes.smart-video-processor.metainfo.xml
       - install -Dm644 resources/icon.svg /app/share/icons/hicolor/scalable/apps/io.github.xfuentes.smart-video-processor.svg
       - install -Dm755 run.sh /app/bin/io.github.xfuentes.smart-video-processor
     sources:
       - type: git
         url: https://github.com/xfuentes/smart-video-processor.git
-        tag: v1.9.3
-        commit: 9a9ef5acd5c8c4147e52f8a4a26a9f6f743e1cfa
+        tag: v1.9.4
+        commit: fb197979ff6fb52e94bc188235e5d7947ccf8acb
         disable-lfs: true
         x-checker-data:
           type: git
-          tag-pattern: '^v(\d+\.\d+\.\d+)$'
+          tag-pattern: ^v(\d+\.\d+\.\d+)$
       - generated-sources.json
       - type: script
         dest-filename: run.sh
         commands:
           - export PATH="/app/lib/ffmpeg/bin:$PATH"
           - export FLATHUB=true
-          - exec zypak-wrapper /app/lib/smart-video-processor/smart-video-processor "$@"
+          - exec zypak-wrapper /app/lib/smart-video-processor/smart-video-processor
+            "$@"
