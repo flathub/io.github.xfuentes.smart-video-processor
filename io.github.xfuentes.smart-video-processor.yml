@@ -270,8 +270,8 @@ modules:
     sources:
       - type: git
         url: https://github.com/xfuentes/smart-video-processor.git
-        tag: v3.7.1
-        commit: 4c83f929e7ad8c9762cefe675ce25ffc69b55767
+        tag: v3.8.0
+        commit: 4c40b6c70874485ece818e9bd45a100e149118ea
         disable-lfs: true
       - generated-sources.json
       - type: script
